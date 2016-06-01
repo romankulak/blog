@@ -19,6 +19,8 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            if 'picture' in request.FILES:
+                profile.picture = request.FILES['picture']
             post.save()
             return redirect('blog.views.post_detail', pk=post.pk)
     else:

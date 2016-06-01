@@ -97,7 +97,13 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+STATIC_PATH = os.path.join(BASE_DIR,'static')
+
+STATIC_URL = '/static/' # You may find this is already defined as such.
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    STATIC_PATH,
 )
 LOGIN_REDIRECT_URL = '/'
+MEDIA_URL='/media/'
+MEDIA_ROOT = BASE_DIR+'static/images'
